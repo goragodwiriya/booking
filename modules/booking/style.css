@@ -1,0 +1,31 @@
+.calendar_links {
+  margin: 10px 0 0;
+}
+.calendar_links a {
+  color: inherit;
+}
+.calendar_links a > span {
+  width: 1em;
+  height: 1em;
+  border-radius: 50em;
+  display: inline-block;
+  margin-right: 10px;
+}
+.modal_detail table tbody th,
+.modal_detail table td {
+  vertical-align: top;
+  text-align: left;
+}
+.modal_detail table tbody th {
+  font-weight: bold;
+}
+.modal_detail .bg {
+  background-color: #f5f5f5;
+}
+#booking_rooms {
+  background-color: #fff;
+  padding-bottom: 10px;
+}
+.modal_detail figure {
+  margin-top: 0;
+}
