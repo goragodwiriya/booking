@@ -1,0 +1,131 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+    <div>
+        <header data-component="topbar"></header>
+        <main class="content">
+            <form data-form="booking" data-load-api="api/booking/booking/get" data-load-query-params="true" data-ajax-submit="true" action="api/booking/booking/save" method="post"
+                  autocomplete="off">
+                <div class="card-groups">
+                    <header>
+                        <div>
+                            <h1 class="icon-edit">
+                                <span data-i18n>Book a room</span>
+                                <span data-if="id > 0" data-class="'status' + status" data-text="status_text"></span>
+                            </h1>
+                            <p data-i18n>Create or update a room reservation request</p>
+                        </div>
+                        <div class="header-actions">
+                            <a class="btn btn-info icon-office" href="/rooms" data-i18n>All rooms</a>
+                            <a class="btn btn-warning icon-list" href="/my-bookings" data-i18n>My bookings</a>
+                        </div>
+                    </header>
+                    <div class="content-body">
+                        <fieldset>
+                            <legend data-i18n>Requester</legend>
+                            <div>
+                                <label for="member_name" data-i18n>Name</label>
+                                <span class="form-control icon-profile">
+                                    <input type="text" id="member_name" data-attr="value:member_name" disabled>
+                                </span>
+                            </div>
+                        </fieldset>
+                        <fieldset data-attr="disabled:!canEdit">
+                            <legend data-i18n>Reservation details</legend>
+                            <div class="form-group">
+                                <div class="width50">
+                                    <label for="room_id" data-i18n>Room</label>
+                                    <span class="form-control icon-office">
+                                        <select id="room_id" name="room_id" data-options-key="room_id" data-attr="value:room_id">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="attendees" data-i18n>Attendees number</label>
+                                    <span class="form-control icon-users">
+                                        <input type="number" id="attendees" name="attendees" data-attr="value:attendees" min="1" max="999">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="width50">
+                                    <label for="topic" data-i18n>Topic</label>
+                                    <span class="form-control icon-file">
+                                        <input type="text" id="topic" name="topic" data-attr="value:topic" maxlength="150">
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="use" data-i18n>Use for</label>
+                                    <span class="form-control icon-menus">
+                                        <select id="use" name="use" data-options-key="use" data-attr="value:use">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="width50">
+                                    <label for="begin_date" data-i18n>Start date</label>
+                                    <span class="form-control icon-calendar">
+                                        <input type="date" id="begin_date" name="begin_date" data-attr="value:begin_date">
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="begin_time" data-i18n>Start time</label>
+                                    <span class="form-control icon-clock">
+                                        <input type="time" id="begin_time" name="begin_time" data-attr="value:begin_time">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="width50">
+                                    <label for="end_date" data-i18n>End date</label>
+                                    <span class="form-control icon-calendar">
+                                        <input type="date" id="end_date" name="end_date" data-attr="value:end_date">
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="end_time" data-i18n>End time</label>
+                                    <span class="form-control icon-clock">
+                                        <input type="time" id="end_time" name="end_time" data-attr="value:end_time">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="comment" data-i18n>For multi-day booking, selected time will be applied daily for every date in range</div>
+                            <div>
+                                <label for="accessories" data-i18n>Accessories</label>
+                                <span class="form-control icon-list">
+                                    <select id="accessories" name="accessories" multiple data-options-key="accessories" data-attr="value:accessories"></select>
+                                </span>
+                                <div class="comment" id="result_accessories" data-i18n>Select one or more required accessories</div>
+                            </div>
+                            <div>
+                                <label for="comment" data-i18n>Notes</label>
+                                <span class="form-control icon-comments">
+                                    <textarea id="comment" name="comment" rows="3" data-text="comment"></textarea>
+                                </span>
+                            </div>
+                        </fieldset>
+                        <fieldset data-if="reason">
+                            <legend data-i18n>Latest decision</legend>
+                            <div>
+                                <label for="reason" data-i18n>Reason</label>
+                                <span class="form-control icon-warning">
+                                    <textarea id="reason" rows="3" data-text="reason" disabled></textarea>
+                                </span>
+                            </div>
+                        </fieldset>
+                        <fieldset class="submit">
+                            <aside class="error" data-if="!canEdit" data-i18n>This booking has already been processed and cannot be changed</aside>
+                            <button type="submit" class="btn btn-primary icon-save" data-attr="disabled:!canEdit" data-i18n>Save</button>
+                            <input type="hidden" name="id" data-attr="value:id">
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+    <footer class="footer">
+        <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+    </footer>
+</div>

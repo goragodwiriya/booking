@@ -1,0 +1,24 @@
+<div class="booking-catalog-detail-body">
+    <div class="now-slideshow booking-catalog-modal-slideshow" data-if="gallery && gallery.length > 0" data-slideshow data-effect="fade" data-autoplay="false" data-height="400px"
+         data-show-indicators="true" data-show-nav="true" data-for="item in gallery">
+        <template>
+            <div class="now-slide">
+                <img src="{{item.url}}" alt="{{name}}" loading="lazy">
+            </div>
+        </template>
+    </div>
+    <div class="booking-catalog-media-placeholder icon-office" data-if="!gallery || gallery.length === 0"></div>
+    <div class="booking-catalog-detail-head">
+        <div>
+            <h2 data-text="name"></h2>
+            <p class="booking-catalog-card-subtitle"
+               data-text="room_number && building ? room_number + ' / ' + building + ' / ' + seats + ' {LNG_Seats}' : (room_number || building || '{LNG_Room}')"></p>
+        </div>
+        <span class="booking-catalog-status" data-class="is-active:is_active == 1" data-text="is_active == 1 ? '{LNG_Available}' : '{LNG_Unavailable}'"></span>
+    </div>
+    <div class="booking-catalog-meta" data-text="detail"></div>
+    <div class="booking-catalog-actions">
+        <a class="btn btn-primary icon-office" data-attr="href:booking_url" data-i18n>Select this room</a>
+        <button type="button" class="btn btn-secondary modal-close" data-i18n>Close</button>
+    </div>
+</div>

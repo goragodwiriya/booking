@@ -1,0 +1,128 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+    <div>
+        <header data-component="topbar"></header>
+        <main class="content">
+            <form data-form="bookingReview" data-load-api="api/booking/review/get" data-load-query-params="true" autocomplete="off">
+                <div class="card-groups">
+                    <header>
+                        <div>
+                            <h1 class="icon-valid" data-i18n>Review booking</h1>
+                            <p data-i18n>Inspect booking details and decide the current approval step</p>
+                        </div>
+                        <div class="header-actions">
+                            <a class="btn btn-warning icon-list" href="/approvals" data-i18n>Booking approvals</a>
+                        </div>
+                    </header>
+                    <div class="content-body">
+                        <fieldset>
+                            <legend data-i18n>Requester</legend>
+                            <div>
+                                <label for="member_name" data-i18n>Name</label>
+                                <span class="form-control icon-profile">
+                                    <input type="text" id="member_name" data-attr="value:member_name" disabled>
+                                </span>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend data-i18n>Reservation details</legend>
+                            <div class="form-group">
+                                <div class="width50">
+                                    <label for="room_name" data-i18n>Room</label>
+                                    <span class="form-control icon-office">
+                                        <input type="text" id="room_name" data-attr="value:room_name" disabled>
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="room_number" data-i18n>Room No.</label>
+                                    <span class="form-control icon-home">
+                                        <input type="text" id="room_number" data-attr="value:room_number" disabled>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="width50">
+                                    <label for="attendees" data-i18n>Attendees number</label>
+                                    <span class="form-control icon-users">
+                                        <input type="text" id="attendees" data-attr="value:attendees" disabled>
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="status_text" data-i18n>Status</label>
+                                    <span class="form-control icon-valid">
+                                        <input type="text" id="status_text" data-attr="value:status_text" disabled>
+                                    </span>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="topic" data-i18n>Topic</label>
+                                <span class="form-control icon-file">
+                                    <textarea id="topic" rows="3" data-text="topic" disabled></textarea>
+                                </span>
+                            </div>
+                            <div>
+                                <label for="reservation_text" data-i18n>Reservation period</label>
+                                <span class="form-control icon-calendar">
+                                    <input type="text" id="reservation_text" data-attr="value:reservation_text" disabled>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <div class="width50">
+                                    <label for="use_text" data-i18n>Use for</label>
+                                    <span class="form-control icon-menus">
+                                        <input type="text" id="use_text" data-attr="value:use_text" disabled>
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="accessories_text" data-i18n>Accessories</label>
+                                    <span class="form-control icon-list">
+                                        <input type="text" id="accessories_text" data-attr="value:accessories_text" disabled>
+                                    </span>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="comment" data-i18n>Notes</label>
+                                <span class="form-control icon-comments">
+                                    <textarea id="comment" rows="3" data-text="comment" disabled></textarea>
+                                </span>
+                            </div>
+                        </fieldset>
+                        <fieldset data-attr="disabled:!canProcess&&!canCancelAction">
+                            <legend data-i18n>Approval decision</legend>
+                            <div>
+                                <label for="approval_reason" data-i18n>Decision note</label>
+                                <span class="form-control icon-edit">
+                                    <textarea id="approval_reason" name="approval_reason" rows="4" data-text="approval_reason"></textarea>
+                                </span>
+                                <div class="comment" id="result_approval_reason" data-i18n>Required when rejecting, returning, or cancelling a booking</div>
+                            </div>
+                            <aside class="success" data-if="!canProcess&&!canCancelAction" data-i18n>This booking has already been processed</aside>
+                        </fieldset>
+                        <fieldset class="submit">
+                            <div data-if="canProcess">
+                                <button type="button" class="btn btn-success icon-valid" data-action="click.prevent:requestApi" data-api-url="api/booking/review/approve"
+                                        data-api-method="post" data-param-id="{id}" data-param-approval_reason="{approval_reason}" data-confirm="Confirm approval"
+                                        data-loading-text="Approving" data-notify-success="true" data-attr="disabled:!canApproveAction" data-i18n>Approve</button>
+                                <button type="button" class="btn btn-danger icon-ban" data-action="click.prevent:requestApi" data-api-url="api/booking/review/reject"
+                                        data-api-method="post" data-param-id="{id}" data-param-approval_reason="{approval_reason}" data-confirm="Confirm rejection"
+                                        data-loading-text="Rejecting" data-notify-success="true" data-attr="disabled:!canApproveAction" data-i18n>Reject</button>
+                                <button type="button" class="btn btn-warning icon-write" data-action="click.prevent:requestApi" data-api-url="api/booking/review/returnedit"
+                                        data-api-method="post" data-param-id="{id}" data-param-approval_reason="{approval_reason}" data-confirm="Confirm return for correction"
+                                        data-loading-text="Returning" data-notify-success="true" data-attr="disabled:!canApproveAction" data-i18n>Return for correction</button>
+                            </div>
+                            <div data-if="canCancelAction">
+                                <button type="button" class="btn btn-danger icon-delete" data-action="click.prevent:requestApi" data-api-url="api/booking/review/cancelofficer"
+                                        data-api-method="post" data-param-id="{id}" data-param-approval_reason="{approval_reason}" data-confirm="Confirm cancellation by officer"
+                                        data-loading-text="Cancelling" data-notify-success="true" data-attr="disabled:!canCancelAction" data-i18n>Cancel by officer</button>
+                            </div>
+                            <input type="hidden" name="id" data-attr="value:id">
+                        </fieldset>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+    <footer class="footer">
+        <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+    </footer>
+</div>

@@ -1,0 +1,167 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+    <div>
+        <header data-component="topbar"></header>
+        <main class="content">
+            <div class="card-groups">
+                <header>
+                    <div>
+                        <h1 class="icon-cog" data-i18n>{LNG_Module settings}</h1>
+                        <p data-i18n>{LNG_Configuration module} {LNG_Book a room}</p>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <form data-form="settings" action="api/booking/settings/save" method="POST" data-ajax-submit="true" data-load-api="api/booking/settings/get"
+                          data-confirm="Confirm save" data-script="initBookingSettings">
+                        <fieldset>
+                            <legend class="icon-verfied" data-i18n>Approval workflow</legend>
+                            <div>
+                                <label for="booking_approve_level" data-i18n>Approval</label>
+                                <span class="form-control icon-valid">
+                                    <select id="booking_approve_level" name="booking_approve_level" data-attr="value:booking_approve_level">
+                                        <option value="0" data-i18n>Deactivate</option>
+                                        <option value="1" data-i18n>Activate</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div class="form-group can-approve" data-level="1">
+                                <div class="width50">
+                                    <label for="booking_approve_status1" data-i18n>{LNG_Approval} ({LNG_Member status})</label>
+                                    <span class="form-control icon-star0">
+                                        <select id="booking_approve_status1" name="booking_approve_status[1]" data-attr="value:booking_approve_status[1]" data-options-key="status">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="booking_approve_department1" data-i18n>Department</label>
+                                    <span class="form-control icon-group">
+                                        <select id="booking_approve_department1" name="booking_approve_department[1]" data-attr="value:booking_approve_department[1]"
+                                                data-options-key="department">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group can-approve" data-level="2">
+                                <div class="width50">
+                                    <label for="booking_approve_status2" data-i18n>Approval step 2 ({LNG_Member status})</label>
+                                    <span class="form-control icon-star0">
+                                        <select id="booking_approve_status2" name="booking_approve_status[2]" data-attr="value:booking_approve_status[2]" data-options-key="status">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="booking_approve_department2" data-i18n>Department</label>
+                                    <span class="form-control icon-group">
+                                        <select id="booking_approve_department2" name="booking_approve_department[2]" data-attr="value:booking_approve_department[2]"
+                                                data-options-key="department">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group can-approve" data-level="3">
+                                <div class="width50">
+                                    <label for="booking_approve_status3" data-i18n>Approval step 3 ({LNG_Member status})</label>
+                                    <span class="form-control icon-star0">
+                                        <select id="booking_approve_status3" name="booking_approve_status[3]" data-attr="value:booking_approve_status[3]" data-options-key="status">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="booking_approve_department3" data-i18n>Department</label>
+                                    <span class="form-control icon-group">
+                                        <select id="booking_approve_department3" name="booking_approve_department[3]" data-attr="value:booking_approve_department[3]"
+                                                data-options-key="department">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group can-approve" data-level="4">
+                                <div class="width50">
+                                    <label for="booking_approve_status4" data-i18n>Approval step 4 ({LNG_Member status})</label>
+                                    <span class="form-control icon-star0">
+                                        <select id="booking_approve_status4" name="booking_approve_status[4]" data-attr="value:booking_approve_status[4]" data-options-key="status">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="booking_approve_department4" data-i18n>Department</label>
+                                    <span class="form-control icon-group">
+                                        <select id="booking_approve_department4" name="booking_approve_department[4]" data-attr="value:booking_approve_department[4]"
+                                                data-options-key="department">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group can-approve" data-level="5">
+                                <div class="width50">
+                                    <label for="booking_approve_status5" data-i18n>Approval step 5 ({LNG_Member status})</label>
+                                    <span class="form-control icon-star0">
+                                        <select id="booking_approve_status5" name="booking_approve_status[5]" data-attr="value:booking_approve_status[5]" data-options-key="status">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="width50">
+                                    <label for="booking_approve_department5" data-i18n>Department</label>
+                                    <span class="form-control icon-group">
+                                        <select id="booking_approve_department5" name="booking_approve_department[5]" data-attr="value:booking_approve_department[5]"
+                                                data-options-key="department">
+                                            <option value="" data-i18n>Please select</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend class="icon-office" data-i18n>Booking rules</legend>
+                            <div>
+                                <label for="booking_approving" data-i18n>{LNG_Approval}/{LNG_Correct Reservation}</label>
+                                <span class="form-control icon-verfied">
+                                    <select name="booking_approving" id="booking_approving" data-attr="value:booking_approving">
+                                        <option value="0" data-i18n>Before the reservation time ends</option>
+                                        <option value="1" data-i18n>Before the reservation time starts</option>
+                                        <option value="2" data-i18n>All the time</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div>
+                                <label for="booking_cancellation" data-i18n>Cancellation</label>
+                                <span class="form-control icon-warning">
+                                    <select name="booking_cancellation" id="booking_cancellation" data-attr="value:booking_cancellation">
+                                        <option value="0" data-i18n>Pending review or returned for correction only</option>
+                                        <option value="1" data-i18n>Before the reservation date</option>
+                                        <option value="3" data-i18n>Before the reservation start time</option>
+                                        <option value="2" data-i18n>Before the reservation end time</option>
+                                        <option value="4" data-i18n>At any time, including retrospective cancellation</option>
+                                    </select>
+                                </span>
+                            </div>
+                            <div>
+                                <label for="booking_delete" data-i18n>{LNG_Delete a booking} ({LNG_Booker})</label>
+                                <span class="form-control icon-delete">
+                                    <select id="booking_delete" name="booking_delete" multiple data-options-key="booking_statuses" data-attr="value:booking_delete"></select>
+                                </span>
+                                <div id="result_booking_delete" class="comment" data-i18n>Select the status in which the booker can delete his or her entry. Or not selected at all,
+                                    it can only be deleted by the approver.</div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="submit">
+                            <button type="submit" class="btn btn-primary icon-save" data-i18n>Save</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+    </footer>
+</div>
