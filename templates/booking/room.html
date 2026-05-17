@@ -1,0 +1,60 @@
+<form data-form="room" data-validate="false" data-reset="false" action="api/booking/room/save" method="post" data-ajax-submit="true" autocomplete="off">
+    <fieldset>
+        <div>
+            <label for="name" data-i18n>Room name</label>
+            <span class="form-control icon-office">
+                <input type="text" id="name" name="name" data-attr="value:name" maxlength="150">
+            </span>
+        </div>
+        <div class="form-group">
+            <div class="width50">
+                <label for="number" data-i18n>Room No.</label>
+                <span class="form-control icon-home">
+                    <input type="text" id="number" name="number" data-attr="value:number" maxlength="50">
+                </span>
+            </div>
+            <div class="width50">
+                <label for="building" data-i18n>Building</label>
+                <span class="form-control icon-location">
+                    <input type="text" id="building" name="building" data-attr="value:building" maxlength="100">
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="width50">
+                <label for="color" data-i18n>Color</label>
+                <span class="form-control icon-color-fill">
+                    <input type="color" id="color" name="color" data-attr="value:color">
+                </span>
+            </div>
+            <div class="width50">
+                <label for="seats" data-i18n>Seats</label>
+                <span class="form-control icon-users">
+                    <input type="number" id="seats" name="seats" data-attr="value:seats" min="1" max="999">
+                </span>
+            </div>
+        </div>
+        <div>
+            <label for="detail" data-i18n>Details</label>
+            <span class="form-control icon-file">
+                <textarea id="detail" name="detail" rows="4" data-text="detail"></textarea>
+            </span>
+        </div>
+        <div>
+            <label for="booking" data-i18n>Images</label>
+            <span class="form-control icon-upload">
+                <input type="file" id="booking" name="booking" data-files="booking" multiple data-preview="true" data-allow-remove-existing="true"
+                       data-action-url="api/booking/room/remove-image" accept="image/*">
+            </span>
+            <div class="comment" id="result_booking" data-i18n>{LNG_Browse image uploaded, type} jpg, jpeg, png, webp</div>
+        </div>
+        <div>
+            <input type="checkbox" class="switch" id="is_active" name="is_active" value="1" data-attr="checked:is_active">
+            <label for="is_active" data-i18n>Active</label>
+        </div>
+    </fieldset>
+    <fieldset class="submit right">
+        <button type="submit" class="btn btn-primary icon-save" data-i18n>Save</button>
+        <input type="hidden" name="id" data-attr="value:id">
+    </fieldset>
+</form>
