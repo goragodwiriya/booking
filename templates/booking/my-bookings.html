@@ -1,0 +1,57 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-office" data-i18n>My bookings</h1>
+            <p data-i18n>View and manage your own room reservations</p>
+          </div>
+          <div class="header-actions">
+            <a class="btn btn-primary icon-new" href="/booking" data-i18n>Book a room</a>
+          </div>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="myBookings" data-source="api/booking/mybookings" data-default-sort="created_at desc" data-page-size="25"
+                   data-search-columns="room_name,topic,comment" data-action-url="api/booking/mybookings/action" data-row-actions='{
+                                "view":{
+                                  "title":"View",
+                                  "className":"btn btn-warning icon-search"
+                                },
+                                "edit": {
+                                  "title": "Edit",
+                                  "className": "btn btn-success icon-edit",
+                                  "condition":"${can_edit == true}"
+                                },
+                                "cancel": {
+                                  "title": "Cancel",
+                                  "className": "btn btn-danger icon-ban",
+                                  "confirm": "{LNG_Confirm cancellation}",
+                                  "condition":"${can_cancel == true}"
+                                }
+                              }'>
+              <thead>
+                <tr>
+                  <th data-field="room_name" data-sort="room_name" data-formatter="formatRoomWithImage" data-i18n>{LNG_Room}</th>
+                  <th data-field="topic" data-template="<span class='two_line'>${topic}</span>" data-i18n>{LNG_Topic}</th>
+                  <th data-field="reservation_text" data-sort="begin" class="center" data-cell-class="center" data-i18n> {LNG_Reservation period}</th>
+                  <th data-field="created_at" data-sort="created_at" class="center" data-cell-class="center" data-format="datetime" data-i18n>{LNG_Created}</th>
+                  <th data-field="status" data-filter="true" data-type="select" data-sort="status" class="center" data-cell-class="center" data-formatter="formatTableOptionStatus"
+                      data-i18n>{LNG_Status}</th>
+                  <th data-field="reason" data-template="<span class='two_line'>${reason}</span>" data-i18n>{LNG_Reason}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>
