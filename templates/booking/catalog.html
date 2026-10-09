@@ -1,0 +1,65 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+    <div>
+        <header data-component="topbar"></header>
+        <main class="content">
+            <div class="card-groups booking-catalog-page" data-component="api" data-endpoint="api/booking/catalog/lists" data-cache="true" data-cache-time="60000">
+                <header>
+                    <div>
+                        <h1 class="icon-office" data-i18n>All rooms</h1>
+                        <p data-i18n>Browse rooms and choose a room for your reservation</p>
+                    </div>
+                    <div class="header-actions">
+                        <a class="btn btn-warning icon-list" href="/my-bookings" data-i18n>My bookings</a>
+                        <a class="btn btn-primary icon-edit" href="/booking" data-i18n>Open booking form</a>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <div class="booking-catalog-layout">
+                        <section class="booking-catalog-grid" data-if="items && items.length > 0" data-for="item in items">
+                            <template>
+                                <article class="booking-catalog-card" data-attr="data-id:item.id">
+                                    <a class="booking-catalog-card-trigger" href="/rooms" data-action="click.prevent:requestApi" data-api-url="api/booking/catalog/detail"
+                                       data-api-method="get" data-param-id="{id}">
+                                        <div class="booking-catalog-card-media" data-if="item.first_image_url">
+                                            <img src="{{item.first_image_url}}" alt="{{item.name}}" loading="lazy">
+                                            <span class="booking-catalog-status" data-class="is-active:item.is_active == 1"
+                                                  data-text="item.is_active == 1 ? '{LNG_Available}' : '{LNG_Unavailable}'"></span>
+                                        </div>
+                                        <div class="booking-catalog-card-media" data-if="!item.first_image_url">
+                                            <div class="booking-catalog-placeholder icon-office"></div>
+                                            <span class="booking-catalog-status" data-class="is-active:item.is_active == 1"
+                                                  data-text="item.is_active == 1 ? '{LNG_Available}' : '{LNG_Unavailable}'"></span>
+                                        </div>
+                                        <div class="booking-catalog-card-body">
+                                            <h2 class="two_lines" data-text="item.name"></h2>
+                                            <div>
+                                                <p class="booking-catalog-card-subtitle" data-text="item.room_number"></p>
+                                                <div class="booking-catalog-description">
+                                                    <span data-text="item.building"></span>
+                                                    <span data-text="item.seats ? item.seats + ' {LNG_Seats}' : ''"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="booking-catalog-actions">
+                                        <button type="button" class="btn btn-secondary icon-search" data-action="click.prevent:requestApi" data-api-url="api/booking/catalog/detail"
+                                                data-api-method="get" data-param-id="{id}" data-i18n>View details</button>
+                                        <a class="btn btn-primary icon-office" data-attr="href:item.booking_url" data-i18n>Select this room</a>
+                                    </div>
+                                </article>
+                            </template>
+                        </section>
+                        <div class="booking-catalog-grid-empty" data-if="!items || items.length === 0">
+                            <span class="icon-office"></span>
+                            <p data-i18n>No rooms are available for booking right now</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+    </footer>
+</div>

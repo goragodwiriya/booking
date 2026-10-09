@@ -1,0 +1,94 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+    <div>
+        <header data-component="topbar"></header>
+        <main class="content">
+            <div class="card-groups">
+                <header>
+                    <div>
+                        <h1 class="icon-valid" data-i18n>Booking approvals</h1>
+                        <p data-i18n>Review pending and processed room reservation requests</p>
+                    </div>
+                </header>
+                <div class="content-body">
+                    <form data-table-filter="bookingApprovals" class="table_nav">
+                        <div>
+                            <label for="pageSize" data-i18n>Show</label>
+                            <span class="form-control">
+                                <select name="pageSize">
+                                    <option value="10" data-i18n>10 {LNG_entries}</option>
+                                    <option value="25" data-i18n>25 {LNG_entries}</option>
+                                    <option value="50" data-i18n>50 {LNG_entries}</option>
+                                    <option value="100" data-i18n>100 {LNG_entries}</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div>
+                            <label for="member_id" data-i18n>{LNG_Requester}</label>
+                            <span class="form-control">
+                                <select id="member_id" name="member_id" data-attr="value:member_id">
+                                    <option value="" data-i18n>{LNG_All items}</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div>
+                            <label for="room_id" data-i18n>{LNG_Room}</label>
+                            <span class="form-control">
+                                <select id="room_id" name="room_id" data-attr="value:room_id">
+                                    <option value="" data-i18n>{LNG_All items}</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div>
+                            <label for="status" data-i18n>{LNG_Status}</label>
+                            <span class="form-control">
+                                <select id="status" name="status" data-attr="value:status">
+                                    <option value="" data-i18n>{LNG_All items}</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div>
+                            <label for="from" data-i18n>From</label>
+                            <span class="form-control">
+                                <input type="date" name="from" id="from" data-attr="value:from">
+                            </span>
+                        </div>
+                        <div>
+                            <label for="to" data-i18n>To</label>
+                            <span class="form-control">
+                                <input type="date" name="to" id="to" data-attr="value:to">
+                            </span>
+                        </div>
+                        <input type="search" name="search" placeholder="{LNG_Search}...">
+                    </form>
+                    <div class="tablebody">
+                        <table class="table border fullwidth" data-table="bookingApprovals" data-source="api/booking/approvals" data-default-sort="create_date desc"
+                               data-page-size="25" data-search-columns="room_name,topic,comment,reason" data-action-url="api/booking/approvals/action" data-row-actions='{
+                                "review": {
+                                  "label": "Review",
+                                  "className": "btn btn-warning icon-search"
+                                }
+                              }'>
+                            <thead>
+                                <tr>
+                                    <th data-field="member_id" data-sort="member_id" data-format="lookup" data-i18n>{LNG_Requester}</th>
+                                    <th data-field="room_id" data-sort="room_id" data-formatter="formatRoomWithImage" data-i18n>{LNG_Room}</th>
+                                    <th data-field="topic" data-template="<span class='two_line'>${topic}</span>" data-i18n>{LNG_Topic}</th>
+                                    <th data-field="reservation_text" data-sort="begin" class="center" data-cell-class="center" data-i18n> {LNG_Reservation period}</th>
+                                    <th data-field="created_at" data-sort="created_at" class="center" data-cell-class="center" data-format="datetime" data-i18n>{LNG_Created}</th>
+                                    <th data-field="status" data-sort="status" data-formatter="formatTableOptionStatus" class="center" data-cell-class="center" data-i18n>
+                                        {LNG_Status}</th>
+                                    <th data-field="reason" data-template="<span class='two_line'>${reason}</span>" data-i18n>{LNG_Reason}</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+    </footer>
+</div>
