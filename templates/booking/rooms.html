@@ -1,0 +1,44 @@
+<aside data-component="sidebar"></aside>
+<div class="main-content">
+  <div>
+    <header data-component="topbar"></header>
+    <main class="content">
+      <div class="card-groups">
+        <header>
+          <div>
+            <h1 class="icon-office" data-i18n>Rooms</h1>
+            <p data-i18n>Manage rooms and their metadata</p>
+          </div>
+          <button class="btn btn-primary icon-new" data-action="click.prevent:requestApi" data-api-url="api/booking/room/get" data-api-method="get" data-i18n>{LNG_Add}
+            {LNG_Room}</button>
+        </header>
+        <div class="content-body">
+          <div class="tablebody">
+            <table class="table border fullwidth" data-table="rooms" data-source="api/booking/rooms" data-default-sort="id desc" data-page-size="25" data-show-checkbox="true"
+                   data-actions='{"delete":"Delete"}' data-action-url="api/booking/rooms/action" data-row-actions='{
+                      "edit": {
+                        "label": "Edit",
+                        "className": "btn btn-success icon-edit"
+                      }
+                    }'>
+              <thead>
+                <tr>
+                  <th data-field="name" data-sort="name" data-formatter="formatRoomWithImage" data-i18n>{LNG_Room}</th>
+                  <th data-field="number" data-sort="number" data-i18n>{LNG_Room No.}</th>
+                  <th data-field="building" data-sort="building" data-i18n>{LNG_Building}</th>
+                  <th data-field="seats" class="center" data-cell-class="center" data-sort="seats" data-i18n>{LNG_Seats}</th>
+                  <th data-field="is_active" class="center" data-cell-class="center" data-sort="is_active"
+                      data-template="<button class='btn-table-action' data-action='active' data-value='${is_active}'></button>" data-i18n>{LNG_Active}</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer">
+    <p class="center">&copy; 2026 Admin Framework - Powered by <a href="https://nowjs.net">Now.js</a></p>
+  </footer>
+</div>
