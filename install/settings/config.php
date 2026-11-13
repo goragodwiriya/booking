@@ -1,0 +1,9 @@
+<?php
+/* config.php */
+return [
+    'version' => '7.0.4',
+    'web_title' => 'E-Booking',
+    'web_description' => 'ระบบจองห้องประชุม',
+    'timezone' => 'Asia/Bangkok',
+    'dashboard_guest' => true
+];
