@@ -1,0 +1,31 @@
+<form data-form="bookingCategories" action="api/booking/categories/save" method="post" data-ajax-submit="true" data-load-api="api/booking/categories/get"
+      data-load-query-params="true" data-confirm="Confirm save">
+  <div class="card-groups">
+      <header>
+          <div>
+              <h1 class="icon-tags" data-text="title || type" data-i18n>Category</h1>
+              <p data-i18n>Manage booking master data</p>
+          </div>
+      </header>
+      <div class="content-body">
+          <fieldset class="grid">
+              <div class="tablebody">
+                  <table class="table border fullwidth" data-table="bookingCategories" data-editable-rows="true" data-attr="data:options" data-url-params="false">
+                      <!-- ภาษาละหนึ่งช่อง: กลุ่มคอลัมน์ languages จาก options.columnGroups (Index\Categories\Controller) -->
+                      <thead>
+                        <tr>
+                          <th data-field="id" data-cell-element="text" data-size="5" data-i18n>ID</th>
+                          <th data-column-group="languages" data-field="{key}" data-cell-element="text" data-size="20">{label}</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                  </table>
+              </div>
+          </fieldset>
+          <fieldset class="submit">
+              <button type="submit" class="btn btn-primary icon-save" data-i18n>Save</button>
+              <input type="hidden" name="type" data-attr="value:type">
+          </fieldset>
+      </div>
+  </div>
+</form>

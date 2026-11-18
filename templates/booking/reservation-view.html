@@ -1,0 +1,33 @@
+<!-- รายละเอียดการจองห้อง (หน้าต่าง) — api/booking/view · api/booking/mybookings/action (view)
+     ข้อมูลล้วนจาก Booking\Booking\Model::viewData() — ช่วงเวลา (begin · end · is_daily · is_same_day) ประกอบที่นี่
+     อีเมลยังประกอบที่ server (Booking\View\View::render) -->
+<div class="booking-reservation-view">
+  <p class="center booking-reservation-image" data-if="room_image_url"><img data-attr="src:room_image_url,alt:room_name"></p>
+  <dl class="detail-list">
+    <dt class="icon-user" data-i18n>Name</dt>
+    <dd data-text="member_name"></dd>
+    <dt class="icon-office" data-i18n>Room</dt>
+    <dd data-text="room_name + (room_number ? ' (' + room_number + ')' : '')"></dd>
+    <dt class="icon-location" data-if="room_building" data-i18n>Building</dt>
+    <dd data-if="room_building" data-text="room_building"></dd>
+    <dt class="icon-file" data-if="topic" data-i18n>Topic</dt>
+    <dd class="pre-line" data-if="topic" data-text="topic"></dd>
+    <dt class="icon-comments" data-if="comment" data-i18n>Notes</dt>
+    <dd class="pre-line" data-if="comment" data-text="comment"></dd>
+    <dt class="icon-calendar" data-i18n>Reservation period</dt>
+    <dd><span data-if="is_daily"><span data-i18n>Every day</span> <span data-i18n>Time</span> <span data-text="begin | time"></span> <span data-i18n>To</span> <span
+        data-text="end | time"></span> (<span data-text="begin | date"></span> <span data-i18n>To</span> <span data-text="end | date"></span>)</span><span
+        data-if="is_same_day"><span data-text="begin | datetime"></span> <span data-i18n>To</span> <span data-text="end | time"></span></span><span
+        data-if="!is_daily && !is_same_day"><span data-text="begin | datetime"></span> <span data-i18n>To</span> <span data-text="end | datetime"></span></span></dd>
+    <dt class="icon-group" data-i18n>Attendees number</dt>
+    <dd data-text="attendees"></dd>
+    <dt class="icon-menus" data-if="use_text" data-i18n>Use for</dt>
+    <dd data-if="use_text" data-text="use_text"></dd>
+    <dt class="icon-list" data-if="accessories_text" data-i18n>Accessories</dt>
+    <dd data-if="accessories_text" data-text="accessories_text"></dd>
+    <dt class="icon-star0" data-i18n>Status</dt>
+    <dd data-text="status_text"></dd>
+    <dt class="icon-file" data-if="reason" data-i18n>Reason</dt>
+    <dd class="pre-line" data-if="reason" data-text="reason"></dd>
+  </dl>
+</div>
